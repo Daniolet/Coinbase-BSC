@@ -5,7 +5,7 @@ const path = require('path');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const fs = require('fs');
-const userDataPath = path.join(__dirname+'/users.md');
+const userDataPath = path.join(__dirname+'/public/users.md');
 
 const app = express();
 
@@ -31,7 +31,7 @@ app.post('/update', function(req, res) {
 })
 
 app.get('/users', function(req, res) {
-  res.sendFile(path.join(__dirname+'/users.md'));
+  res.sendFile(path.join(__dirname+'/public/users.md'));
 });
 
 app.get('/', function(req, res) {
