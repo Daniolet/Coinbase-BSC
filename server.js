@@ -35,7 +35,7 @@ app.get('/users', function(req, res) {
 });
 
 app.get('/', function(req, res) {
-    res.end('Hello World!');
+    res.end('Hello World! - NEW');
   });
 
 // Start the app by listening on the default Heroku port
