@@ -1,11 +1,10 @@
-
 //Install express server
 const express = require('express');
 const path = require('path');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const fs = require('fs');
-const userDataPath = path.join(__dirname+'/public/users.md');
+const userDataPath = path.join(__dirname+'/users.md');
 
 const app = express();
 
@@ -26,17 +25,16 @@ app.use(cors(corsOptions));
 app.post('/update', function(req, res) {
   fs.appendFile(userDataPath, JSON.stringify(req.body) + '\n' , function(err) {
     res.sendStatus(200);
-    console.log('TOUCH', JSON.stringify(req.body));
   });
 })
 
 app.get('/users', function(req, res) {
-  res.sendFile(path.join(__dirname+'/public/users.md'));
+  res.sendFile(path.join(__dirname+'/users.md'));
 });
 
 app.get('/', function(req, res) {
-    res.end('Hello World! - NEW');
+    res.end('Hello World!');
   });
 
 // Start the app by listening on the default Heroku port
-app.listen(process.env.PORT || 8080);
+app.listen(process.env.PORT || 2083);
